@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Vazirmatn } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   description: 'تبلیغات هدفمند، بهینه و پربازده در معتبرترین اپلیکیشن‌های سفارش غذا',
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -23,9 +30,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl" className={vazirmatn.variable}>
-      <body className="bg-bg-main text-slate-200 font-sans antialiased selection:bg-brand selection:text-black">
+      <body
+        className={`${vazirmatn.className} bg-bg-main text-slate-200 font-sans antialiased selection:bg-brand selection:text-black min-h-dvh flex flex-col w-full overflow-x-hidden relative`}
+      >
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="flex-1 w-full">{children}</main>
         <Footer />
       </body>
     </html>

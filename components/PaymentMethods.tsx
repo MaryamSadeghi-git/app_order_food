@@ -38,7 +38,7 @@ const paymentRow3 = [
 
 export default function PaymentMethods() {
   return (
-    <section className="w-full py-14 overflow-hidden select-none bg-[#0b0f0d]" dir="ltr">
+    <section className="w-full py-10 md:py-14 overflow-hidden select-none bg-[#0b0f0d]" dir="ltr">
       <style jsx>{`
         @keyframes move-left {
           0% {
@@ -86,22 +86,22 @@ export default function PaymentMethods() {
       `}</style>
 
       {/* تیتر بخش */}
-      <div className="text-center mb-10 px-4" dir="rtl">
-        <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-4 py-1.5 rounded-full">
+      <div className="text-center mb-8 sm:mb-10 px-4" dir="rtl">
+        <span className="text-[11px] sm:text-xs font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block">
           زیرساخت مالی و پرداخت
         </span>
-        <h2 className="text-2xl md:text-3xl font-bold text-white mt-4 mb-3">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-3 sm:mt-4 mb-2 sm:mb-3">
           درگاه‌ها و مدل‌های تسویه‌حساب سازمانی
         </h2>
-        <p className="text-sm text-slate-400 max-w-xl mx-auto">
+        <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
           پشتیبانی از انواع روش‌های پرداخت آنلاین، اعتباری، یارانه شرکتی و صدور فاکتور رسمی
         </p>
       </div>
 
-      <div className="space-y-3 relative">
-        {/* گرادیان محوکننده طرفین */}
-        <div className="absolute top-0 bottom-0 left-0 w-24 md:w-36 bg-gradient-to-r from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-24 md:w-36 bg-gradient-to-l from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
+      <div className="space-y-2.5 sm:space-y-3 relative">
+        {/* گرادیان محوکننده طرفین با عرض واکنش‌گرا */}
+        <div className="absolute top-0 bottom-0 left-0 w-10 sm:w-20 md:w-36 bg-gradient-to-r from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-10 sm:w-20 md:w-36 bg-gradient-to-l from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
 
         {/* خط ۱: حرکت به چپ */}
         <div className="overflow-hidden track-container py-1">
@@ -109,16 +109,16 @@ export default function PaymentMethods() {
             {[0, 1].map((copy) => (
               <div
                 key={`r1-${copy}`}
-                className="flex shrink-0 gap-3 px-1.5"
+                className="flex shrink-0 gap-2 sm:gap-3 px-1 sm:px-1.5"
                 dir="rtl"
                 aria-hidden={copy === 1}
               >
                 {paymentRow1.map((item) => (
                   <div
                     key={`item-1-${copy}-${item.id}`}
-                    className="shrink-0 whitespace-nowrap rounded-xl border border-emerald-500/20 bg-[#121a16] px-4 py-2.5 text-xs font-medium text-white shadow-md hover:border-emerald-400/60 hover:scale-[1.03] transition-transform duration-300 cursor-pointer flex items-center gap-2"
+                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-500/20 bg-[#121a16] px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-white shadow-md hover:border-emerald-400/60 hover:scale-[1.03] transition-transform duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2"
                   >
-                    <span className="text-sm">{item.icon}</span>
+                    <span className="text-xs sm:text-sm">{item.icon}</span>
                     <span>{item.title}</span>
                   </div>
                 ))}
@@ -133,16 +133,16 @@ export default function PaymentMethods() {
             {[0, 1].map((copy) => (
               <div
                 key={`r2-${copy}`}
-                className="flex shrink-0 gap-3 px-1.5"
+                className="flex shrink-0 gap-2 sm:gap-3 px-1 sm:px-1.5"
                 dir="rtl"
                 aria-hidden={copy === 1}
               >
                 {paymentRow2.map((item) => (
                   <div
                     key={`item-2-${copy}-${item.id}`}
-                    className="shrink-0 whitespace-nowrap rounded-xl border border-emerald-500/20 bg-[#121a16] px-4 py-2.5 text-xs font-medium text-white shadow-md hover:border-emerald-400/60 hover:scale-[1.03] transition-transform duration-300 cursor-pointer flex items-center gap-2"
+                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-500/20 bg-[#121a16] px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-white shadow-md hover:border-emerald-400/60 hover:scale-[1.03] transition-transform duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2"
                   >
-                    <span className="text-sm">{item.icon}</span>
+                    <span className="text-xs sm:text-sm">{item.icon}</span>
                     <span>{item.title}</span>
                   </div>
                 ))}
@@ -157,16 +157,16 @@ export default function PaymentMethods() {
             {[0, 1].map((copy) => (
               <div
                 key={`r3-${copy}`}
-                className="flex shrink-0 gap-3 px-1.5"
+                className="flex shrink-0 gap-2 sm:gap-3 px-1 sm:px-1.5"
                 dir="rtl"
                 aria-hidden={copy === 1}
               >
                 {paymentRow3.map((item) => (
                   <div
                     key={`item-3-${copy}-${item.id}`}
-                    className="shrink-0 whitespace-nowrap rounded-xl border border-emerald-500/20 bg-[#121a16] px-4 py-2.5 text-xs font-medium text-white shadow-md hover:border-emerald-400/60 hover:scale-[1.03] transition-transform duration-300 cursor-pointer flex items-center gap-2"
+                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-500/20 bg-[#121a16] px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-white shadow-md hover:border-emerald-400/60 hover:scale-[1.03] transition-transform duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2"
                   >
-                    <span className="text-sm">{item.icon}</span>
+                    <span className="text-xs sm:text-sm">{item.icon}</span>
                     <span>{item.title}</span>
                   </div>
                 ))}

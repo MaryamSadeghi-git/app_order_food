@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <div className="pt-28 pb-20 relative overflow-hidden">
       {/* Emerald Ambient Glow (Revaal Style) */}
-      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[700px] h-[380px] bg-emerald-500/10 blur-[150px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[700px] max-w-full h-[380px] bg-emerald-500/10 blur-[150px] rounded-full pointer-events-none -z-10" />
 
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto px-6 text-center pt-16 pb-20">
@@ -18,8 +18,8 @@ export default function HomePage() {
           نسل جدید تبلیغات داده‌محور در صنعت غذا
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight md:leading-[1.25] text-white">
-          رستوران شما در لحظه تصمیم‌گیری، <br />
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight leading-tight md:leading-[1.25] text-white">
+          رستوران شما در لحظه تصمیم‌گیری، <br className="hidden md:inline" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-300 to-teal-200">
             اولین گزینه مشتری گرسنه است.
           </span>
@@ -32,13 +32,13 @@ export default function HomePage() {
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="#cta"
-            className="w-full sm:w-auto px-8 py-3.5 bg-brand hover:bg-brand-light text-slate-200 font-bold rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.2)] transition"
+            className="w-full sm:w-auto px-8 py-3.5 bg-brand hover:bg-brand-light text-slate-200 font-bold rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.2)] transition text-center"
           >
             مشاوره و راه‌اندازی کمپین
           </Link>
           <Link
             href="/blog"
-            className="w-full sm:w-auto px-8 py-3.5 bg-bg-card hover:bg-bg-cardHover text-slate-200 border border-emerald-500/20 hover:border-emerald-500/40 rounded-xl font-medium transition"
+            className="w-full sm:w-auto px-8 py-3.5 bg-bg-card hover:bg-bg-cardHover text-slate-200 border border-emerald-500/20 hover:border-emerald-500/40 rounded-xl font-medium transition text-center"
           >
             مطالعه تجربیات موفق
           </Link>
@@ -48,19 +48,19 @@ export default function HomePage() {
       {/* Stats Section */}
       <section className="max-w-5xl mx-auto px-6 py-12 border-y border-emerald-900/60 my-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center bg-bg-card/40 backdrop-blur-sm rounded-3xl">
         <div>
-          <div className="text-3xl md:text-4xl font-black text-white">+۱.۸M</div>
+          <div className="text-2xl sm:text-3xl md:text-4xl font-black text-white">+۱.۸M</div>
           <div className="text-xs text-slate-400 mt-2">ایمپرشن ماهانه در اپلیکیشن</div>
         </div>
         <div>
-          <div className="text-3xl md:text-4xl font-black text-brand-light">۳.۶x</div>
+          <div className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-light">۳.۶x</div>
           <div className="text-xs text-slate-400 mt-2">افزایش نرخ تبدیل (CVR)</div>
         </div>
         <div>
-          <div className="text-3xl md:text-4xl font-black text-white">+۵۲۰</div>
+          <div className="text-2xl sm:text-3xl md:text-4xl font-black text-white">+۵۲۰</div>
           <div className="text-xs text-slate-400 mt-2">رستوران و فست‌فود فعال</div>
         </div>
         <div>
-          <div className="text-3xl md:text-4xl font-black text-brand-light">۴.۱٪</div>
+          <div className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-light">۴.۱٪</div>
           <div className="text-xs text-slate-400 mt-2">میانگین نرخ کلیک (CTR)</div>
         </div>
       </section>
@@ -68,15 +68,15 @@ export default function HomePage() {
       {/* Features Grid */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <InteractiveDemo/> 
-          <FoodScenarios/> 
-          <span id="features"/> 
+          <InteractiveDemo /> 
+          <FoodScenarios /> 
+          <span id="features" /> 
           <PlatformMetrics /> 
-          <PaymentMethods/> 
+          <PaymentMethods /> 
           <p className="text-slate-400 mt-3 text-sm">تبلیغاتی ارگانیک که حس خرید طبیعی را به مشتری القا می‌کند.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 */}
           <div className="p-8 rounded-2xl bg-bg-card border border-emerald-500/20 hover:border-emerald-500/50 hover:bg-bg-cardHover transition duration-300">
             <div className="text-brand-light text-2xl font-black mb-4">۰۱</div>
