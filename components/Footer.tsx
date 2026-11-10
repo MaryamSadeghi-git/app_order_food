@@ -1,23 +1,24 @@
+// components/Footer.tsx
 import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-emerald-900/50 bg-bg-main py-8 md:py-12 text-center text-xs text-slate-400">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="border-t border-emerald-600/20 bg-[#F3EFE6] py-8 text-center text-xs text-stone-600 dark:border-emerald-900/50 dark:bg-bg-main dark:text-slate-400 md:py-12 transition-colors duration-300">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
         {/* کپی‌رایت */}
         <div className="order-2 md:order-1">
           © ۲۰۲۶ پلتفرم تبلیغات سفارش غذا. کلیه حقوق محفوظ است.
         </div>
         
         {/* لینک‌ها */}
-        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 order-1 md:order-2">
-          <Link href="#" className="hover:text-brand-lighter transition-colors whitespace-nowrap">
+        <div className="order-1 flex flex-wrap justify-center gap-4 sm:gap-6 md:order-2">
+          <Link href="#" className="transition-colors hover:text-emerald-700 dark:hover:text-brand-lighter whitespace-nowrap">
             قوانین و ضوابط
           </Link>
-          <Link href="#" className="hover:text-brand-lighter transition-colors whitespace-nowrap">
+          <Link href="#" className="transition-colors hover:text-emerald-700 dark:hover:text-brand-lighter whitespace-nowrap">
             سیاست حریم شخصی
           </Link>
-          <Link href="#" className="hover:text-brand-lighter transition-colors whitespace-nowrap">
+          <Link href="#" className="transition-colors hover:text-emerald-700 dark:hover:text-brand-lighter whitespace-nowrap">
             تماس با واحد فروش
           </Link>
         </div>

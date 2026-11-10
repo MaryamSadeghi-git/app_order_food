@@ -1,3 +1,5 @@
+//components/FoodScenarios.tsx
+
 'use client';
 
 const itemsRow1 = [
@@ -26,7 +28,7 @@ const itemsRow3 = [
 
 export default function FoodScenarios() {
   return (
-    <section className="w-full py-12 md:py-16 overflow-hidden select-none bg-[#0b0f0d]" dir="ltr">
+    <section className="w-full py-12 md:py-16 overflow-hidden select-none bg-background text-foreground transition-colors duration-300" dir="ltr">
       {/* استایل CSS مستقل: حرکت پیوسته یک‌طرفه با لوپ نامحدود */}
       <style jsx>{`
         @keyframes scrollLeftContinuous {
@@ -67,21 +69,21 @@ export default function FoodScenarios() {
 
       {/* سرتیتر بخش */}
       <div className="text-center mb-8 md:mb-10 px-4" dir="rtl">
-        <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-3.5 sm:px-4 py-1.5 rounded-full inline-block">
+        <span className="text-xs font-semibold text-emerald-800 bg-emerald-100/80 border border-emerald-600/30 dark:text-emerald-400 dark:bg-emerald-950/80 dark:border-emerald-500/30 px-3.5 sm:px-4 py-1.5 rounded-full inline-block">
           سناریوهای هوشمند سازمانی
         </span>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-3 sm:mt-4 mb-2 sm:mb-3">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-stone-900 dark:text-white mt-3 sm:mt-4 mb-2 sm:mb-3">
           فرآیندهای خودکار سامانه سفارش غذا
         </h2>
-        <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto">
+        <p className="text-xs sm:text-sm text-stone-600 dark:text-slate-400 max-w-xl mx-auto">
           جریان‌های کاری آماده برای مدیریت خودکار، سریع و دقیق غذای پرسنل
         </p>
       </div>
 
       <div className="space-y-3 sm:space-y-4 relative">
-        {/* لایه‌های گرادیان چپ و راست با عرض ریسپانسیو تا محتوای وسط در موبایل کور نشود */}
-        <div className="absolute top-0 bottom-0 left-0 w-10 sm:w-20 md:w-36 bg-gradient-to-r from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-10 sm:w-20 md:w-36 bg-gradient-to-l from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
+        {/* لایه‌های گرادیان چپ و راست هماهنگ با تم لایت (#FAF7F2) و دارک (#0b0f0d) */}
+        <div className="absolute top-0 bottom-0 left-0 w-10 sm:w-20 md:w-36 bg-gradient-to-r from-[#FAF7F2] dark:from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-10 sm:w-20 md:w-36 bg-gradient-to-l from-[#FAF7F2] dark:from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
 
         {/* خط ۱: حرکت به چپ */}
         <div className="overflow-hidden track-container py-1">
@@ -90,16 +92,16 @@ export default function FoodScenarios() {
               <div
                 key={`r1-${idx}`}
                 dir="rtl"
-                className="w-60 sm:w-72 p-3.5 sm:p-4 rounded-2xl bg-[#121a16] border border-emerald-500/20 hover:border-emerald-400/60 shadow-lg flex items-center gap-3 transition-transform duration-300 hover:scale-[1.03] cursor-pointer shrink-0"
+                className="w-60 sm:w-72 p-3.5 sm:p-4 rounded-2xl bg-bg-card border border-emerald-600/20 hover:border-emerald-600/50 hover:bg-bg-cardHover shadow-sm dark:shadow-lg flex items-center gap-3 transition-all duration-300 hover:scale-[1.03] cursor-pointer shrink-0 dark:border-emerald-500/20 dark:hover:border-emerald-400/60"
               >
-                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-950/90 border border-emerald-500/30 flex items-center justify-center text-base sm:text-lg shrink-0">
+                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-100/80 border border-emerald-600/20 flex items-center justify-center text-base sm:text-lg shrink-0 dark:bg-emerald-950/90 dark:border-emerald-500/30">
                   {item.icon}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <span className="text-[9px] sm:text-[10px] font-medium text-emerald-400 bg-emerald-950/70 px-2 py-0.5 rounded-full border border-emerald-900 inline-block">
+                  <span className="text-[9px] sm:text-[10px] font-medium text-emerald-800 bg-emerald-100/90 px-2 py-0.5 rounded-full border border-emerald-200 inline-block dark:text-emerald-400 dark:bg-emerald-950/70 dark:border-emerald-900">
                     {item.category}
                   </span>
-                  <h4 className="text-[11px] sm:text-xs font-bold text-white truncate mt-1">
+                  <h4 className="text-[11px] sm:text-xs font-bold text-stone-900 dark:text-white truncate mt-1">
                     {item.title}
                   </h4>
                 </div>
@@ -115,16 +117,16 @@ export default function FoodScenarios() {
               <div
                 key={`r2-${idx}`}
                 dir="rtl"
-                className="w-60 sm:w-72 p-3.5 sm:p-4 rounded-2xl bg-[#121a16] border border-emerald-500/20 hover:border-emerald-400/60 shadow-lg flex items-center gap-3 transition-transform duration-300 hover:scale-[1.03] cursor-pointer shrink-0"
+                className="w-60 sm:w-72 p-3.5 sm:p-4 rounded-2xl bg-bg-card border border-emerald-600/20 hover:border-emerald-600/50 hover:bg-bg-cardHover shadow-sm dark:shadow-lg flex items-center gap-3 transition-all duration-300 hover:scale-[1.03] cursor-pointer shrink-0 dark:border-emerald-500/20 dark:hover:border-emerald-400/60"
               >
-                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-950/90 border border-emerald-500/30 flex items-center justify-center text-base sm:text-lg shrink-0">
+                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-100/80 border border-emerald-600/20 flex items-center justify-center text-base sm:text-lg shrink-0 dark:bg-emerald-950/90 dark:border-emerald-500/30">
                   {item.icon}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <span className="text-[9px] sm:text-[10px] font-medium text-emerald-400 bg-emerald-950/70 px-2 py-0.5 rounded-full border border-emerald-900 inline-block">
+                  <span className="text-[9px] sm:text-[10px] font-medium text-emerald-800 bg-emerald-100/90 px-2 py-0.5 rounded-full border border-emerald-200 inline-block dark:text-emerald-400 dark:bg-emerald-950/70 dark:border-emerald-900">
                     {item.category}
                   </span>
-                  <h4 className="text-[11px] sm:text-xs font-bold text-white truncate mt-1">
+                  <h4 className="text-[11px] sm:text-xs font-bold text-stone-900 dark:text-white truncate mt-1">
                     {item.title}
                   </h4>
                 </div>
@@ -140,16 +142,16 @@ export default function FoodScenarios() {
               <div
                 key={`r3-${idx}`}
                 dir="rtl"
-                className="w-60 sm:w-72 p-3.5 sm:p-4 rounded-2xl bg-[#121a16] border border-emerald-500/20 hover:border-emerald-400/60 shadow-lg flex items-center gap-3 transition-transform duration-300 hover:scale-[1.03] cursor-pointer shrink-0"
+                className="w-60 sm:w-72 p-3.5 sm:p-4 rounded-2xl bg-bg-card border border-emerald-600/20 hover:border-emerald-600/50 hover:bg-bg-cardHover shadow-sm dark:shadow-lg flex items-center gap-3 transition-all duration-300 hover:scale-[1.03] cursor-pointer shrink-0 dark:border-emerald-500/20 dark:hover:border-emerald-400/60"
               >
-                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-950/90 border border-emerald-500/30 flex items-center justify-center text-base sm:text-lg shrink-0">
+                <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-100/80 border border-emerald-600/20 flex items-center justify-center text-base sm:text-lg shrink-0 dark:bg-emerald-950/90 dark:border-emerald-500/30">
                   {item.icon}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <span className="text-[9px] sm:text-[10px] font-medium text-emerald-400 bg-emerald-950/70 px-2 py-0.5 rounded-full border border-emerald-900 inline-block">
+                  <span className="text-[9px] sm:text-[10px] font-medium text-emerald-800 bg-emerald-100/90 px-2 py-0.5 rounded-full border border-emerald-200 inline-block dark:text-emerald-400 dark:bg-emerald-950/70 dark:border-emerald-900">
                     {item.category}
                   </span>
-                  <h4 className="text-[11px] sm:text-xs font-bold text-white truncate mt-1">
+                  <h4 className="text-[11px] sm:text-xs font-bold text-stone-900 dark:text-white truncate mt-1">
                     {item.title}
                   </h4>
                 </div>

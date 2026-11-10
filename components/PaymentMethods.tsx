@@ -1,3 +1,5 @@
+//components/PaymentMethods.tsx
+
 'use client';
 
 // ردیف ۱: درگاه‌های مستقیم و الکترونیک
@@ -38,7 +40,7 @@ const paymentRow3 = [
 
 export default function PaymentMethods() {
   return (
-    <section className="w-full py-10 md:py-14 overflow-hidden select-none bg-[#0b0f0d]" dir="ltr">
+    <section className="w-full py-10 md:py-14 overflow-hidden select-none bg-background text-foreground transition-colors duration-300" dir="ltr">
       <style jsx>{`
         @keyframes move-left {
           0% {
@@ -87,21 +89,21 @@ export default function PaymentMethods() {
 
       {/* تیتر بخش */}
       <div className="text-center mb-8 sm:mb-10 px-4" dir="rtl">
-        <span className="text-[11px] sm:text-xs font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block">
+        <span className="text-[11px] sm:text-xs font-semibold text-emerald-800 bg-emerald-100/80 border border-emerald-600/30 dark:text-emerald-400 dark:bg-emerald-950/80 dark:border-emerald-500/30 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block">
           زیرساخت مالی و پرداخت
         </span>
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-3 sm:mt-4 mb-2 sm:mb-3">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-stone-900 dark:text-white mt-3 sm:mt-4 mb-2 sm:mb-3">
           درگاه‌ها و مدل‌های تسویه‌حساب سازمانی
         </h2>
-        <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm text-stone-600 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
           پشتیبانی از انواع روش‌های پرداخت آنلاین، اعتباری، یارانه شرکتی و صدور فاکتور رسمی
         </p>
       </div>
 
       <div className="space-y-2.5 sm:space-y-3 relative">
-        {/* گرادیان محوکننده طرفین با عرض واکنش‌گرا */}
-        <div className="absolute top-0 bottom-0 left-0 w-10 sm:w-20 md:w-36 bg-gradient-to-r from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-10 sm:w-20 md:w-36 bg-gradient-to-l from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
+        {/* گرادیان محوکننده طرفین: در لایت هماهنگ با #FAF7F2 و در دارک هماهنگ با #0b0f0d */}
+        <div className="absolute top-0 bottom-0 left-0 w-10 sm:w-20 md:w-36 bg-gradient-to-r from-[#FAF7F2] dark:from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-10 sm:w-20 md:w-36 bg-gradient-to-l from-[#FAF7F2] dark:from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
 
         {/* خط ۱: حرکت به چپ */}
         <div className="overflow-hidden track-container py-1">
@@ -116,7 +118,7 @@ export default function PaymentMethods() {
                 {paymentRow1.map((item) => (
                   <div
                     key={`item-1-${copy}-${item.id}`}
-                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-500/20 bg-[#121a16] px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-white shadow-md hover:border-emerald-400/60 hover:scale-[1.03] transition-transform duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2"
+                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-600/20 bg-bg-card px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-stone-800 shadow-sm hover:border-emerald-600/60 hover:bg-bg-cardHover hover:scale-[1.03] transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 dark:border-emerald-500/20 dark:text-white dark:hover:border-emerald-400/60 dark:shadow-md"
                   >
                     <span className="text-xs sm:text-sm">{item.icon}</span>
                     <span>{item.title}</span>
@@ -140,7 +142,7 @@ export default function PaymentMethods() {
                 {paymentRow2.map((item) => (
                   <div
                     key={`item-2-${copy}-${item.id}`}
-                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-500/20 bg-[#121a16] px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-white shadow-md hover:border-emerald-400/60 hover:scale-[1.03] transition-transform duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2"
+                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-600/20 bg-bg-card px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-stone-800 shadow-sm hover:border-emerald-600/60 hover:bg-bg-cardHover hover:scale-[1.03] transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 dark:border-emerald-500/20 dark:text-white dark:hover:border-emerald-400/60 dark:shadow-md"
                   >
                     <span className="text-xs sm:text-sm">{item.icon}</span>
                     <span>{item.title}</span>
@@ -164,7 +166,7 @@ export default function PaymentMethods() {
                 {paymentRow3.map((item) => (
                   <div
                     key={`item-3-${copy}-${item.id}`}
-                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-500/20 bg-[#121a16] px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-white shadow-md hover:border-emerald-400/60 hover:scale-[1.03] transition-transform duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2"
+                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-600/20 bg-bg-card px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-stone-800 shadow-sm hover:border-emerald-600/60 hover:bg-bg-cardHover hover:scale-[1.03] transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 dark:border-emerald-500/20 dark:text-white dark:hover:border-emerald-400/60 dark:shadow-md"
                   >
                     <span className="text-xs sm:text-sm">{item.icon}</span>
                     <span>{item.title}</span>
