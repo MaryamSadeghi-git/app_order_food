@@ -2,6 +2,8 @@
 import { Vazirmatn } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import './globals.css';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const vazirmatn = Vazirmatn({
   subsets: ['arabic', 'latin'],
@@ -20,7 +22,11 @@ export default function RootLayout({
         className={`${vazirmatn.variable} font-sans bg-background text-foreground antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          {children}
+        <Navbar/>
+          <main>
+            {children}
+          </main>
+        <Footer/>
         </ThemeProvider>
       </body>
     </html>

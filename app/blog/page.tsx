@@ -1,32 +1,10 @@
 // app/blog/page.tsx
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import Image from "next/image";
+import { articles , values} from "@/components/FoodMethodData";
 
-const values = [
-  { icon: "🌱", title: "سلامت", description: "غذای بهتر" },
-  { icon: "❤️", title: "رضایت", description: "تجربه‌ای فراتر از انتظار" },
-  { icon: "⭐", title: "کیفیت", description: "از بهترین مواد" },
-];
 
-const articles = [
-  {
-    category: "مدیریت و بهره‌وری",
-    title: "چگونه یک منوی سازمانی مؤثر طراحی کنیم؟",
-    readingTime: "۴ دقیقه مطالعه",
-  },
-  {
-    category: "سلامت کارکنان",
-    title: "تاثیر غذای سالم بر بهره‌وری تیم‌ها",
-    readingTime: "۳ دقیقه مطالعه",
-  },
-  {
-    category: "تغذیه شرکتی",
-    title: "روندهای جدید در تغذیه شرکتی",
-    readingTime: "۵ دقیقه مطالعه",
-  },
-];
+
 
 export default function BlogPage() {
   return (
@@ -34,12 +12,11 @@ export default function BlogPage() {
       dir="rtl"
       className="min-h-screen bg-[#FAF7F2] text-stone-900 font-sans transition-colors duration-300 selection:bg-emerald-200 selection:text-stone-900 dark:bg-[#0b0f0d] dark:text-emerald-50 dark:selection:bg-emerald-500 dark:selection:text-black"
     >
-      <Navbar />
 
       {/* داستان ما */}
-      <section className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-20 md:grid-cols-2">
+      <section className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-22 md:grid-cols-2">
         <div className="space-y-6">
-          <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+          <span className="text-xl font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
             درباره ما
           </span>
 
@@ -65,7 +42,7 @@ export default function BlogPage() {
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
           <p className="relative z-10 text-sm font-semibold text-emerald-300 drop-shadow-lg md:text-base">
             تصویر حرفه‌ای از تهیه غذا
           </p>
@@ -80,9 +57,7 @@ export default function BlogPage() {
               key={value.title}
               className="rounded-2xl border border-stone-200 bg-white p-6 transition hover:border-emerald-600/50 dark:border-[#1c2e24] dark:bg-[#121a16] dark:hover:border-emerald-500/50"
             >
-              <span className="text-3xl" aria-hidden="true">
-                {value.icon}
-              </span>
+    
               <h3 className="mb-1 mt-3 text-base font-bold text-stone-900 dark:text-white">
                 {value.title}
               </h3>
@@ -169,7 +144,7 @@ export default function BlogPage() {
 
       {/* دعوت به اقدام */}
       <section className="mx-auto max-w-7xl px-6 py-12">
-        <div className="flex flex-col items-center justify-between gap-8 rounded-3xl border border-stone-200 bg-gradient-to-r from-white to-[#F4EFE6] p-8 shadow-xl md:flex-row md:p-12 dark:border-[#1c2e24] dark:from-[#121a16] dark:to-[#0e1411] dark:shadow-2xl">
+        <div className="flex flex-col items-center justify-between gap-8 rounded-3xl border border-stone-200 bg-linear-to-r from-white to-[#F4EFE6] p-8 shadow-xl md:flex-row md:p-12 dark:border-[#1c2e24] dark:from-[#121a16] dark:to-[#0e1411] dark:shadow-2xl">
           <div className="flex items-center gap-6">
             <div
               className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-stone-200 bg-[#FAF7F2] dark:border-[#1c2e24] dark:bg-[#0b0f0d]"
@@ -194,7 +169,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

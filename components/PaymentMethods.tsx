@@ -1,181 +1,58 @@
-//components/PaymentMethods.tsx
-
 'use client';
 
-// ردیف ۱: درگاه‌های مستقیم و الکترونیک
-const paymentRow1 = [
-  { id: 1, title: 'درگاه بانک ملت', icon: '💳' },
-  { id: 2, title: 'کیف پول پرسنل', icon: '👛' },
-  { id: 3, title: 'سامان‌کیش', icon: '🏦' },
-  { id: 4, title: 'زرین‌پال', icon: '🛡️' },
-  { id: 5, title: 'کارت‌خوان سیار', icon: '📲' },
-  { id: 6, title: 'درگاه پاسارگاد', icon: '🏛️' },
-  { id: 7, title: 'بانک آینده', icon: '💳' },
-  { id: 8, title: 'سداد ملی', icon: '🏦' },
-];
+import {
+  paymentRow1,
+  paymentRow2,
+  paymentRow3,
+} from './FoodMethodData';
 
-// ردیف ۲: روش‌های پرداخت شرکتی و اعتباری (B2B)
-const paymentRow2 = [
-  { id: 9, title: 'اعتبار ماهانه شرکت', icon: '📄' },
-  { id: 10, title: 'کسر از حقوق', icon: '📊' },
-  { id: 11, title: 'یارانه ناهار', icon: '⚖️' },
-  { id: 12, title: 'بن کارت رفاهی', icon: '🎟️' },
-  { id: 13, title: 'سقف مدیران ارشد', icon: '👑' },
-  { id: 14, title: 'بودجه واحدها', icon: '🏢' },
-  { id: 15, title: 'تنخواه‌گردان', icon: '💰' },
-  { id: 16, title: 'کارت اعتباری سازمانی', icon: '💳' },
-];
+import MovingRow from './MovingRow';
 
-// ردیف ۳: فاکتور رسمی و تسویه‌حساب کیترینگ‌ها
-const paymentRow3 = [
-  { id: 17, title: 'فاکتور رسمی مالیات', icon: '🧾' },
-  { id: 18, title: 'تسویه کیترینگ', icon: '🔄' },
-  { id: 19, title: 'نرم‌افزار سپیدار', icon: '🔗' },
-  { id: 20, title: 'استرداد آنی وجه', icon: '↩️' },
-  { id: 21, title: 'مغایرت‌گیری بانکی', icon: '🔍' },
-  { id: 22, title: 'گزارش حسابداری', icon: '📊' },
-  { id: 23, title: 'اتصال به ERP', icon: '⚙️' },
-  { id: 24, title: 'تسویه هفتگی', icon: '📅' },
-];
+function PaymentChip({ title }: { title: string }) {
+  return (
+    <div className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-600/20 bg-bg-card px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-stone-800 shadow-sm hover:border-emerald-600/60 hover:bg-bg-cardHover hover:scale-[1.03] transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 dark:border-emerald-500/20 dark:text-white dark:hover:border-emerald-400/60 dark:shadow-md">
+      <span>{title}</span>
+    </div>
+  );
+}
 
 export default function PaymentMethods() {
   return (
-    <section className="w-full py-10 md:py-14 overflow-hidden select-none bg-background text-foreground transition-colors duration-300" dir="ltr">
-      <style jsx>{`
-        @keyframes move-left {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        @keyframes move-right {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-
-        .pay-row-1,
-        .pay-row-2,
-        .pay-row-3 {
-          display: flex;
-          width: max-content;
-          will-change: transform;
-        }
-
-        .pay-row-1 {
-          animation: move-left 75s linear infinite;
-        }
-
-        .pay-row-2 {
-          animation: move-right 75s linear infinite;
-        }
-
-        .pay-row-3 {
-          animation: move-left 80s linear infinite;
-        }
-
-        .track-container:hover .pay-row-1,
-        .track-container:hover .pay-row-2,
-        .track-container:hover .pay-row-3 {
-          animation-play-state: paused;
-        }
-      `}</style>
-
-      {/* تیتر بخش */}
+    <section
+      className="w-full py-2 md:py-14 overflow-hidden select-none bg-background text-foreground transition-colors duration-300"
+      dir="ltr"
+    >
       <div className="text-center mb-8 sm:mb-10 px-4" dir="rtl">
         <span className="text-[11px] sm:text-xs font-semibold text-emerald-800 bg-emerald-100/80 border border-emerald-600/30 dark:text-emerald-400 dark:bg-emerald-950/80 dark:border-emerald-500/30 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block">
-          زیرساخت مالی و پرداخت
+          درگاه‌های پرداخت و تسویه
         </span>
+
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-stone-900 dark:text-white mt-3 sm:mt-4 mb-2 sm:mb-3">
-          درگاه‌ها و مدل‌های تسویه‌حساب سازمانی
+          پشتیبانی از انواع روش‌های پرداخت آنلاین، اعتباری و صدور فاکتور رسمی
         </h2>
-        <p className="text-xs sm:text-sm text-stone-600 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
-          پشتیبانی از انواع روش‌های پرداخت آنلاین، اعتباری، یارانه شرکتی و صدور فاکتور رسمی
-        </p>
       </div>
 
       <div className="space-y-2.5 sm:space-y-3 relative">
-        {/* گرادیان محوکننده طرفین: در لایت هماهنگ با #FAF7F2 و در دارک هماهنگ با #0b0f0d */}
-        <div className="absolute top-0 bottom-0 left-0 w-10 sm:w-20 md:w-36 bg-gradient-to-r from-[#FAF7F2] dark:from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-10 sm:w-20 md:w-36 bg-gradient-to-l from-[#FAF7F2] dark:from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 left-0 w-10 sm:w-20 md:w-36 bg-linear-to-r from-[#FAF7F2] dark:from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-10 sm:w-20 md:w-36 bg-linear-to-l from-[#FAF7F2] dark:from-[#0b0f0d] to-transparent z-10 pointer-events-none" />
 
-        {/* خط ۱: حرکت به چپ */}
-        <div className="overflow-hidden track-container py-1">
-          <div className="pay-row-1">
-            {[0, 1].map((copy) => (
-              <div
-                key={`r1-${copy}`}
-                className="flex shrink-0 gap-2 sm:gap-3 px-1 sm:px-1.5"
-                dir="rtl"
-                aria-hidden={copy === 1}
-              >
-                {paymentRow1.map((item) => (
-                  <div
-                    key={`item-1-${copy}-${item.id}`}
-                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-600/20 bg-bg-card px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-stone-800 shadow-sm hover:border-emerald-600/60 hover:bg-bg-cardHover hover:scale-[1.03] transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 dark:border-emerald-500/20 dark:text-white dark:hover:border-emerald-400/60 dark:shadow-md"
-                  >
-                    <span className="text-xs sm:text-sm">{item.icon}</span>
-                    <span>{item.title}</span>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+        <MovingRow
+          items={paymentRow1}
+          direction="left"
+          renderItem={(item) => <PaymentChip title={item.title} />}
+        />
 
-        {/* خط ۲: حرکت به راست */}
-        <div className="overflow-hidden track-container py-1">
-          <div className="pay-row-2">
-            {[0, 1].map((copy) => (
-              <div
-                key={`r2-${copy}`}
-                className="flex shrink-0 gap-2 sm:gap-3 px-1 sm:px-1.5"
-                dir="rtl"
-                aria-hidden={copy === 1}
-              >
-                {paymentRow2.map((item) => (
-                  <div
-                    key={`item-2-${copy}-${item.id}`}
-                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-600/20 bg-bg-card px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-stone-800 shadow-sm hover:border-emerald-600/60 hover:bg-bg-cardHover hover:scale-[1.03] transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 dark:border-emerald-500/20 dark:text-white dark:hover:border-emerald-400/60 dark:shadow-md"
-                  >
-                    <span className="text-xs sm:text-sm">{item.icon}</span>
-                    <span>{item.title}</span>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+        <MovingRow
+          items={paymentRow2}
+          direction="right"
+          renderItem={(item) => <PaymentChip title={item.title} />}
+        />
 
-        {/* خط ۳: حرکت به چپ */}
-        <div className="overflow-hidden track-container py-1">
-          <div className="pay-row-3">
-            {[0, 1].map((copy) => (
-              <div
-                key={`r3-${copy}`}
-                className="flex shrink-0 gap-2 sm:gap-3 px-1 sm:px-1.5"
-                dir="rtl"
-                aria-hidden={copy === 1}
-              >
-                {paymentRow3.map((item) => (
-                  <div
-                    key={`item-3-${copy}-${item.id}`}
-                    className="shrink-0 whitespace-nowrap rounded-lg sm:rounded-xl border border-emerald-600/20 bg-bg-card px-3 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-medium text-stone-800 shadow-sm hover:border-emerald-600/60 hover:bg-bg-cardHover hover:scale-[1.03] transition-all duration-300 cursor-pointer flex items-center gap-1.5 sm:gap-2 dark:border-emerald-500/20 dark:text-white dark:hover:border-emerald-400/60 dark:shadow-md"
-                  >
-                    <span className="text-xs sm:text-sm">{item.icon}</span>
-                    <span>{item.title}</span>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+        <MovingRow
+          items={paymentRow3}
+          direction="left"
+          renderItem={(item) => <PaymentChip title={item.title} />}
+        />
       </div>
     </section>
   );

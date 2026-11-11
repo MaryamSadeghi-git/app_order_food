@@ -30,3 +30,86 @@
   --color-brand-light: var(--brand-light);
   --font-sans: var(--font-vazirmatn);
 }
+/* ==========================================
+   انیمیشن‌ها و استایل‌های اسکرول فود (FoodScenarios)
+   ========================================== */
+@keyframes scrollLeftContinuous {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRightContinuous {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@layer utilities {
+  .track-left {
+    display: flex;
+    width: max-content;
+    animation: scrollLeftContinuous 60s linear infinite;
+  }
+
+  .track-right {
+    display: flex;
+    width: max-content;
+    animation: scrollRightContinuous 60s linear infinite;
+  }
+
+  .track-container:hover .track-left,
+  .track-container:hover .track-right {
+    animation-play-state: paused;
+  }
+
+  @keyframes move-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes move-right {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .pay-row-1,
+  .pay-row-2,
+  .pay-row-3 {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+  
+  .pay-row-1 {
+    animation: move-left 75s linear infinite;
+  }
+  
+  .pay-row-2 {
+    animation: move-right 75s linear infinite;
+  }
+  
+  .pay-row-3 {
+    animation: move-left 80s linear infinite;
+  }
+  .track-container:hover .pay-row-1,
+  .track-container:hover .pay-row-2,
+  .track-container:hover .pay-row-3 {
+    animation-play-state: paused;
+  }
+        
+}
