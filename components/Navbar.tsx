@@ -1,18 +1,41 @@
 // components/Navbar.tsx
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [hash, setHash] = useState('');
+
+  // خواندن hash فعلی و به‌روزرسانی هنگام تغییر هش یا مسیر
+  useEffect(() => {
+    const updateHash = () =>
+      setHash(typeof window !== 'undefined' ? window.location.hash : '');
+    updateHash();
+    window.addEventListener('hashchange', updateHash);
+    return () => window.removeEventListener('hashchange', updateHash);
+  }, [pathname]);
 
   const navLinks = [
     { name: 'صفحه اصلی', href: '/' },
     { name: 'جایگاه‌ها', href: '/#features' },
     { name: 'وبلاگ', href: '/blog' },
   ];
+
+  const isActive = (href: string) => {
+    const [path, targetHash] = href.split('#');
+    
+    // اگر لینک هش ندارد (مثل صفحه اصلی یا وبلاگ)
+    if (!targetHash) {
+      return pathname === path && hash === '';
+    }
+    
+    // اگر لینک هش دارد (مثل جایگاه‌ها /#features)
+    return pathname === path && hash === `#${targetHash}`;
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#FAF7F2]/85 dark:bg-[#0b0f0d]/80 border-b border-emerald-600/20 dark:border-emerald-900/40 transition-colors duration-300">
@@ -28,13 +51,17 @@ export default function Navbar() {
           {/* تم‌تگل */}
           <ThemeToggle />
           {navLinks.map((link) => {
-            const isActive = pathname === link.href.split("#")[0];
+            const active = isActive(link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => {
+                  const targetHash = link.href.split('#')[1];
+                  setHash(targetHash ? `#${targetHash}` : '');
+                }}
                 className={`transition-colors py-1 whitespace-nowrap ${
-                  isActive
+                  active
                     ? 'text-emerald-700 dark:text-emerald-400 font-bold'
                     : 'text-stone-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-300'
                 }`}

@@ -147,9 +147,10 @@ export default function BlogPage() {
         <div className="flex flex-col items-center justify-between gap-8 rounded-3xl border border-stone-200 bg-linear-to-r from-white to-[#F4EFE6] p-8 shadow-xl md:flex-row md:p-12 dark:border-[#1c2e24] dark:from-[#121a16] dark:to-[#0e1411] dark:shadow-2xl">
           <div className="flex items-center gap-6">
             <div
-              className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-stone-200 bg-[#FAF7F2] dark:border-[#1c2e24] dark:bg-[#0b0f0d]"
-              aria-hidden="true"
-            />
+              className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-stone-200 bg-[#FAF7F2] dark:border-[#1c2e24] dark:bg-[#0b0f0d]"
+            >
+              <Image src="/pic.png" alt="اپلیکیشن فود" fill className="object-cover object-center" />
+            </div>
             <div className="space-y-1 text-center md:text-right">
               <h3 className="text-xl font-bold text-stone-900 md:text-2xl dark:text-white">
                 با فود، آسانتر غذا بخرید، بهتر کار کنید
